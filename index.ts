@@ -17,6 +17,14 @@ let allProducts: Product[] = [];
 const itemsPerPage: number = 5;
 
 // Handlers
+
+function filterProducts(value) {
+    var filteredProducts = allProducts.filter(function (p) {
+        return p.title.toLowerCase().includes(value.toLowerCase()) || p.description.toLowerCase().includes(value.toLowerCase());
+    });
+    console.log('filteredProducts', filteredProducts);
+}
+
 function sortProducts(prop: string): void {
     const sortedProducts = allProducts.toSorted((a: Product, b: Product) => a[prop] > b[prop] ? 1 : a[prop] < b[prop] ? -1 : 0);
     console.log('sortedProducts', sortedProducts);
